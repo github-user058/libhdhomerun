@@ -1308,6 +1308,9 @@ int hdhomerun_device_tuner_lockkey_release(struct hdhomerun_device_t *hd)
 	int ret = hdhomerun_control_set_with_lockkey(hd->cs, name, "none", hd->lockkey, NULL, NULL);
 
 	hd->lockkey = 0;
+
+	hdhomerun_device_set_tuner_channel(hd, "none");
+	
 	return ret;
 }
 
